@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578441754776",
+    "project_id": "carocom-2148b",
+    "storage_bucket": "carocom-2148b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578441754776:android:586e69f13cb8681531f8ed",
+        "android_client_info": {
+          "package_name": "com.example.carocom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578441754776-gbqo78q8c6hlvijr59k3tnsb12q2mlit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpaQKx8wVSTXtb92kqkukFab_KqbiXQwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578441754776-gbqo78q8c6hlvijr59k3tnsb12q2mlit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

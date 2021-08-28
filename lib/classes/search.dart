@@ -1,10 +1,11 @@
+import 'package:carocom/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class DataSearch extends SearchDelegate{
   final cars = [
     'BMW',
     'Toyota',
-    'Testa',
+    'Tesla',
     'Ford',
     'Fiat',
     'BMW',
@@ -15,7 +16,7 @@ class DataSearch extends SearchDelegate{
   ];
   final recentcars = [
     'Toyota',
-    'Testa',
+    'Tesla',
     'Ford',
     'Fiat',
   ];
@@ -23,7 +24,9 @@ class DataSearch extends SearchDelegate{
   List<Widget> buildActions(BuildContext context) {
     return[
       IconButton(icon: Icon(Icons.clear),
-        onPressed: (){}),
+        onPressed: (){
+          query = "";
+        }),
     ];
 
 
@@ -36,21 +39,46 @@ class DataSearch extends SearchDelegate{
          icon:AnimatedIcons.menu_arrow,
          progress: transitionAnimation,
        ),
-       onPressed: (){});
+       onPressed: (){
+         Navigator.of(context).pop();
+       });
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    throw UnimplementedError();
+   return Container(
+
+   );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final suggestionList = query.isEmpty?recentcars:cars;
+    final suggestionList = query.isEmpty?recentcars:cars.where((p) => p.startsWith(query)).toList();
     return ListView.builder(itemBuilder: (context,index)=>ListTile(
+      onTap: (){
+        showResults(
+            context
+        );
+      },
       leading: Icon(Icons.directions_car_sharp),
-      title: Text(suggestionList[index]),
+      title: RichText(text: TextSpan(
+        text: suggestionList[index].substring(0,query.length),
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
+          children: [
+            TextSpan(
+          text: suggestionList[index].substring(query.length),
+              style:
+                TextStyle(
+                  color: Colors.grey,
+                )
+      )
+          ]
+
+
+      )),
     ),
       itemCount: suggestionList.length,
     );
